@@ -1,15 +1,16 @@
 <template>
-<Tarea />
+  <Tarea_altern />
 
 </template>
 
 <script>
-import Tarea from './components/Tarea.vue'
+import Tarea_altern from './components/Tarea.vue'
 
 
 export default {
   name: 'App',
   components: {
+    Tarea_altern
   
   }
 }

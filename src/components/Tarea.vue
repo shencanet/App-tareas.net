@@ -7,7 +7,7 @@
 
 <script>
     export default {
-        name: 'Tarea',        
+        name: "Tarea_altern"       
     }
 </script>
 
