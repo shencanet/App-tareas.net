@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Hola Mundo</h1>
+        <h1 class="siaplay-4 text-center">Listado Tareas</h1>
 
     </div>
 </template>
