@@ -15,6 +15,7 @@
                         </div>
                     </div>
                     <br>
+                    <h4 v-if="listTarea.length == 0 ">No ahi Tareas </h4>
                    
 
                     <ul class="list-group">
