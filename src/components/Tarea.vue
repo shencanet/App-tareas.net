@@ -7,13 +7,15 @@
                 <div class="card mt-4">
                     <div class="card-body">
                         <div class="input-group">
-                            <input type="text" class="form-control form-control-lg" placeholder="Agregar Tarea">
+                            <input type="text" v-model="tarea" class="form-control form-control-lg" placeholder="Agregar Tarea">
                             <div class="input-group-append"></div>
 
-                            <button class="btn btn-success btn-lg">Agregar</button>
+                            <button v-on:click="agregarTarea()"
+                            class="btn btn-success btn-lg">Agregar</button>
                         </div>
                     </div>
-                    <br><br>
+                    <br>
+                    {{ listTarea }}
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between">
                             <span class="cursor"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg></span>
@@ -37,7 +39,24 @@
 
 <script>
 export default {
-    name: "Tarea_altern"
+    name: "Tarea_altern",
+    data() {
+        return {
+            tarea: "",
+            listTarea: [],
+            
+        }
+    },
+methods: {
+    agregarTarea() {
+ const tarea = {
+     nombre: this.tarea,
+     estado: false
+    }
+    this.listTarea.push(tarea);
+    this.tarea = "";
+}
+},
 }
 </script>
 
