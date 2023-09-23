@@ -16,22 +16,28 @@
                     </div>
                     <br>
                     <h4 v-if="listTarea.length == 0 ">No ahi Tareas </h4>
-                    {{ listTarea}}
+                    {{ listTarea }}
                    
 
                     <ul class="list-group">
                         <li v-for="(tarea, index) of listTarea" :key="index"
                             class="list-group-item d-flex justify-content-between">
 
-                            <span class="cursor" v-on:click="editarTarea(tarea, index)">
-                                <i v-bind:class="[tarea.estado ? 'fas fa-check-circle' : 'far fa.circle']"></i> 
+                            <span class="cursor"
+                            v-on:click="editarTarea(tarea, index)">
+                            <i :class="getClassForTareaEstado(tarea.estado)"></i>
+                            
+
+                              
+                                
+                               
                                 </span>
                                 
                                 
                             
                             {{ tarea.nombre }}
                             
-                            <span class="cursor" v-on:click="eliminarTarea(index)"> 
+                            <span class="cursor text-danger" v-on:click="eliminarTarea(index)"> 
                                 
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em"
                                     viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -54,14 +60,13 @@
 
 <script>
 export default {
-    name: "Tarea_altern",
-    data() {
-        return {
-            tarea: '',
-            listTarea: [],
-
-        }
-    },
+  name: "Tarea_altern",
+  data() {
+    return {
+      tarea: "",
+      listTarea: [],
+    };
+  },
     methods: {
         agregarTarea() {
             const tarea = {
@@ -75,10 +80,24 @@ export default {
             this.listTarea.splice(index, 1);
         },
         editarTarea(tarea, index) {
-            this.listTarea[index].estado = !tarea.estado ;
             
+                this.listTarea[index].estado = !tarea.estado;
             
-        }
+},
+getClassForTareaEstado(tarea) {
+    if (tarea.estado) {
+        
+
+      return 'far fa-circle';
+
+    } else {
+      
+        return 'fas fa-check-circle';
+    }
+  }
+
+
+
     },
 }
 </script>
