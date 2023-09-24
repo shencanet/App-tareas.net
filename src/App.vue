@@ -1,21 +1,27 @@
 <template>
-  <Tarea_altern />
-
+  <div class="fondo">
+    <Navbar />
+    <Tarea />
+  </div>
 </template>
 
 <script>
-import Tarea_altern from './components/Tarea.vue'
-
+import Navbar from "./components/Navbar";
+import Tarea from "./components/Tarea";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Tarea_altern
-  
-  }
-}
+    Navbar,
+    Tarea,
+  },
+};
 </script>
 
 <style>
-
+.fondo {
+  background-image: url("./assets/fondo1.jpg");
+  height: 100vh;
+}
 </style>
+
